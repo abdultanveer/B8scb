@@ -1,6 +1,7 @@
 package com.example.b8scb
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -47,6 +48,11 @@ var sum:Int = 20
 
     fun add(firstNo:Int, secondNo:Int):Int{
         return firstNo + secondNo
+    }
+
+    fun openDialer(view: View) {
+        var dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:9880979732"))
+        startActivity(dialIntent)
     }
 
 }
