@@ -1,5 +1,6 @@
 package com.example.b8scb
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -27,12 +28,19 @@ lateinit var mainTextView: TextView
         //add(10,20)
         var data = emailEditText.text.toString()
         mainTextView.setText(data)
-        Log.i("MainActivity","button clicked")
+        var homeIntent = Intent(this,HomeActivity::class.java)
+        startActivity(homeIntent)
+
+        //showSnackbar()
+    }
+
+    private fun showSnackbar() {
+        Log.i("MainActivity", "button clicked")
         var view = findViewById<ConstraintLayout>(R.id.main)
-       // var snackbar =
-            Snackbar.make(view,"1 archived",Snackbar.LENGTH_LONG)
-                .setAction("undo",{})
-                .show()
+        // var snackbar =
+        Snackbar.make(view, "1 archived", Snackbar.LENGTH_LONG)
+            .setAction("undo", {})
+            .show()
     }
 
     fun add(firstNo:Int, secondNo:Int):Int{
