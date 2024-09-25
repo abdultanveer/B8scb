@@ -16,10 +16,11 @@ import com.google.android.material.snackbar.Snackbar
 class MainActivity : AppCompatActivity() {
 lateinit var emailEditText: EditText
 lateinit var mainTextView: TextView
+var sum:Int = 20
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main) //inflating
         emailEditText = findViewById(R.id.etEmail) //taking handle
         mainTextView = findViewById(R.id.tvMain)
     }
@@ -29,6 +30,7 @@ lateinit var mainTextView: TextView
         var data = emailEditText.text.toString()
         mainTextView.setText(data)
         var homeIntent = Intent(this,HomeActivity::class.java)
+        homeIntent.putExtra("myname","abdul")
         startActivity(homeIntent)
 
         //showSnackbar()
