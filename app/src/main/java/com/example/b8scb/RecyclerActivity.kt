@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.b8scb.database.Item
@@ -18,21 +19,25 @@ import kotlinx.coroutines.launch
 class RecyclerActivity : AppCompatActivity() {
     var languages = arrayOf("English","hindi","urdu","kannada","tamil")
     lateinit var recyclerView: RecyclerView
-    var count = 0  //data fetched from db/webservice
+   // var count = 0  //data fetched from db/webservice
 lateinit var  tv: TextView
     lateinit var dao: ItemDao
+    lateinit var viewModel:RecyclerViewmodel
+
 
 
     lateinit var listView: ListView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
+        viewModel = ViewModelProvider(this)[RecyclerViewmodel::class.java]
+
         recyclerView = findViewById(R.id.recyclerview)
         recyclerView.layoutManager = LinearLayoutManager(this)
         var adapter = LangsAdapter(languages)
         recyclerView.adapter = adapter
          tv = findViewById(R.id.tvDb)
-tv.setText(""+count)
+         tv.setText(""+viewModel.count)
 
 
         var database = ItemRoomDatabase.getDatabase(this)
@@ -64,8 +69,8 @@ tv.setText(""+count)
     }
 
     fun increment(view: View) {
-        count++
-        tv.setText(""+count)
+       viewModel.increment()
+        tv.setText(""+viewModel.count)
 
     }
 }
