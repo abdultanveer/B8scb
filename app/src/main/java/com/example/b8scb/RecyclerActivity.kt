@@ -15,11 +15,8 @@ class RecyclerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
-        listView = findViewById(R.id.listView)
 
-        var adapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,
-            languages)
-        listView.adapter = adapter
+
 
     }
 }
