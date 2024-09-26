@@ -18,7 +18,8 @@ import kotlinx.coroutines.launch
 class RecyclerActivity : AppCompatActivity() {
     var languages = arrayOf("English","hindi","urdu","kannada","tamil")
     lateinit var recyclerView: RecyclerView
-
+    var count = 0  //data fetched from db/webservice
+lateinit var  tv: TextView
     lateinit var dao: ItemDao
 
 
@@ -30,6 +31,9 @@ class RecyclerActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         var adapter = LangsAdapter(languages)
         recyclerView.adapter = adapter
+         tv = findViewById(R.id.tvDb)
+tv.setText(""+count)
+
 
         var database = ItemRoomDatabase.getDatabase(this)
         dao = database.itemDao()
@@ -56,6 +60,12 @@ class RecyclerActivity : AppCompatActivity() {
             var tv: TextView = findViewById(R.id.tvDb)
             tv.setText(item.itemName)
         }
+
+    }
+
+    fun increment(view: View) {
+        count++
+        tv.setText(""+count)
 
     }
 }
