@@ -1,6 +1,7 @@
 package com.example.b8scb
 
 import android.os.Bundle
+import android.view.View
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +21,10 @@ recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
 
+
+    }
+
+    fun insertDb(view: View) {
 
     }
 }
