@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "B8scb"
 include(":app")
+include(":app:lib")
