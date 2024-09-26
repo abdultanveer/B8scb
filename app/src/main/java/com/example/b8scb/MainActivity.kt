@@ -24,12 +24,14 @@ lateinit var mainTextView: TextView
     private lateinit var btnPickDate: Button
     private lateinit var txtSelectedDate: TextView
 
+    var TAG = MainActivity::class.java.simpleName
 
 var sum:Int = 20
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main) //inflating
+        Log.i(TAG,"created --egg -- m/y is allocated")
 
         emailEditText = findViewById(R.id.etEmail) //taking handle
         mainTextView = findViewById(R.id.tvMain)
@@ -41,6 +43,33 @@ var sum:Int = 20
             showDatePickerDialog()
         }
     }
+
+    override fun onStart() {
+        super.onStart()
+        Log.e(TAG,"actvity started-visbible-hatched")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.w(TAG,"awake")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.v(TAG,"nap")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG,"hibernate-- activity is in storage")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG,"destroyed")
+    }
+
+
 
 
     private fun showDatePickerDialog() {
