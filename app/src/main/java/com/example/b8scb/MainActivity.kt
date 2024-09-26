@@ -51,12 +51,37 @@ var sum:Int = 20
 
     override fun onResume() {
         super.onResume()
-        Log.w(TAG,"awake")
+        Log.w(TAG,"awake--restore the state of app")
+        restoreData()
+    }
+
+    private fun restoreData() {
+        //open the file
+        var preferences = getSharedPreferences("b9file", MODE_PRIVATE)
+        //read the data from the fgile
+        var data = preferences.getString("em","")
+        //restore the data in the edittexts
+        emailEditText.setText(data)
+        //data/data/com.example.b8scb/shared_prefs/b9file.xml
     }
 
     override fun onPause() {
         super.onPause()
-        Log.v(TAG,"nap")
+        Log.v(TAG,"nap --save the state of the app")
+        storeData()
+    }
+
+    private fun storeData() {
+        //get the data from the edittexts
+        var data = emailEditText.text.toString()
+        //create a file
+        var preferences = getSharedPreferences("b9file", MODE_PRIVATE)
+        //open in edit mode
+        var editor = preferences.edit()
+        //write to the file
+        editor.putString("em",data)
+        //save the file
+        editor.apply()
     }
 
     override fun onStop() {
@@ -66,7 +91,7 @@ var sum:Int = 20
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i(TAG,"destroyed")
+        Log.i(TAG,"destroyed--releasing resourcees")
     }
 
 
