@@ -8,10 +8,10 @@ public class TwoStudents {
         return a + b;
     }
 
-    int abdulAdd(int a, int b){
+    void abdulAdd(int a, int b, MobilePhone mobilePhone){
         try {
             Thread.sleep(10000);
-            return  a+b;
+            mobilePhone.onSum(a+b);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
