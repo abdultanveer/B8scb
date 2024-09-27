@@ -17,4 +17,10 @@ public class Demo {
         System.out.println("manager is going to the airport");
 
     }
+
+    //method call over the webproto-http
+    //https://abdulweather.com/getTemp&city=bangalore
+    int getTemp(String city){
+        return 28;
+    }
 }

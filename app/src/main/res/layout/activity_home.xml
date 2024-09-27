@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="61dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="9dp"
         android:text="TextView"
         android:textSize="20sp"
@@ -26,11 +26,20 @@
         android:id="@+id/btnAlarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="25dp"
         android:onClick="setAlarm"
         android:text="alarm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvHome"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnJsonn"
+        android:onClick="getJson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="json"
+        tools:layout_editor_absoluteX="19dp"
+        tools:layout_editor_absoluteY="17dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

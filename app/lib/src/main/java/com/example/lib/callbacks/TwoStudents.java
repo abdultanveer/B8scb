@@ -11,7 +11,8 @@ public class TwoStudents {
     void abdulAdd(int a, int b, MobilePhone mobilePhone){
         try {
             Thread.sleep(10000);
-            mobilePhone.onSum(a+b);
+            int result = a+b;
+            mobilePhone.onSum(result);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

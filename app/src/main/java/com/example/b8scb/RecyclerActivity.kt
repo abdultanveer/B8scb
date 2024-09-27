@@ -61,13 +61,13 @@ class RecyclerActivity : AppCompatActivity() {
         GlobalScope.launch {  //launch = coroutine
             var gItem = Item(11, "fruits", 12.99, 12)
 
-            dao.insert(gItem)
+            dao.insert(gItem)  //insert is a suspend func
 
         }
     }
 
     fun getDb(view: View) {
-        GlobalScope.launch(Dispatchers.Main) {
+        GlobalScope.launch(Dispatchers.Main) { //Main thread
             var item = dao.getItem(11).first()
             var tv: TextView = findViewById(R.id.tvDb)
             tv.setText(item.itemName)

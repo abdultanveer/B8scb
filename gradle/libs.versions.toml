@@ -13,7 +13,8 @@ roomCommon = "2.6.1"
 roomCompiler = "2.6.1"
 ksp = "1.9.20-1.0.14"
 roomKtx = "2.7.0-alpha07"
-
+retrofit = "2.11.0"
+converterScalars = "2.11.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,7 +28,8 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomCompiler" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
-
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+converter-scalars = { group = "com.squareup.retrofit2", name = "converter-scalars", version.ref = "converterScalars" }
 [plugins]
 
 android-application = { id = "com.android.application", version.ref = "agp" }
