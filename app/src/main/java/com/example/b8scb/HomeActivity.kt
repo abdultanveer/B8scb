@@ -43,8 +43,8 @@ var TAG = HomeActivity::class.java.simpleName
 
     fun getJson(view: View?) {
         GlobalScope.launch {
-            val listResult = MarsApi.retrofitService.getPhotos()
-            Log.i(TAG,listResult)
+            val listResult = MarsApi.retrofitService.getPhotos().get(0)
+            Log.i(TAG,listResult.imgSrc)
         }
     }
 }
