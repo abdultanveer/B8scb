@@ -36,10 +36,22 @@
 
     <Button
         android:id="@+id/btnJsonn"
-        android:onClick="getJson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="17dp"
+        android:onClick="getJson"
         android:text="json"
-        tools:layout_editor_absoluteX="19dp"
-        tools:layout_editor_absoluteY="17dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHome"
+        tools:srcCompat="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>

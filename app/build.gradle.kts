@@ -38,7 +38,8 @@ android {
 }
 
 dependencies {
-
+    implementation(libs.coil)
+    
     implementation(libs.moshi.kotlin)
     implementation(libs.converter.moshi)
     implementation(libs.retrofit)
