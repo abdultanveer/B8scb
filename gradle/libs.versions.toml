@@ -19,6 +19,10 @@ moshi = "1.15.1"
 moshiKotlin = "1.15.1"
 converterMoshi = "2.11.0"
 coil = "2.7.0"
+lifecycleLivedataKtx = "2.8.5"
+lifecycleViewmodelKtx = "2.8.5"
+navigationFragmentKtx = "2.8.0"
+navigationUiKtx = "2.8.0"
 
 
 [libraries]
@@ -39,6 +43,10 @@ moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
 moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshiKotlin" }
 converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "converterMoshi" }
 coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 
 
 [plugins]
