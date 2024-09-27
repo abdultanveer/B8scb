@@ -3,10 +3,12 @@ package com.example.b8scb.ui.dashboard
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.b8scb.R
 import com.example.b8scb.networking.MarsPhoto
 
@@ -19,9 +21,14 @@ class WordListAdapter : ListAdapter<MarsPhoto, WordListAdapter.WordViewHolder>(W
         holder.bind(current.imgSrc)
     }
     class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
         private val wordItemView: TextView = itemView.findViewById(R.id.tvVisitingcard)
+        private val imageView: ImageView = itemView.findViewById(R.id.iv_card)
+
         fun bind(text: String?) {
             wordItemView.text = text
+            imageView.load(text)
+
         }
         companion object {
             fun create(parent: ViewGroup): WordViewHolder {
