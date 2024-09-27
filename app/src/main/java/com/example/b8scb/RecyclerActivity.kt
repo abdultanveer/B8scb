@@ -20,7 +20,7 @@ class RecyclerActivity : AppCompatActivity() {
     var languages = arrayOf("English","hindi","urdu","kannada","tamil")
     lateinit var recyclerView: RecyclerView
    // var count = 0  //data fetched from db/webservice
-lateinit var  tv: TextView
+lateinit var  tv: TextView //convert this tv into an observer
     lateinit var dao: ItemDao
     lateinit var viewModel:RecyclerViewmodel
 
@@ -37,7 +37,7 @@ lateinit var  tv: TextView
         var adapter = LangsAdapter(languages)
         recyclerView.adapter = adapter
          tv = findViewById(R.id.tvDb)
-         tv.setText(""+viewModel.count)
+         tv.setText(""+viewModel._seconds)
 
 
         var database = ItemRoomDatabase.getDatabase(this)
