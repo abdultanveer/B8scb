@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,35 +18,41 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class RecyclerActivity : AppCompatActivity() {
-    var languages = arrayOf("English","hindi","urdu","kannada","tamil")
+    var languages = arrayOf("English", "hindi", "urdu", "kannada", "tamil")
     lateinit var recyclerView: RecyclerView
-   // var count = 0  //data fetched from db/webservice
-lateinit var  tv: TextView //convert this tv into an observer
+
+    // var count = 0  //data fetched from db/webservice
+    lateinit var tv: TextView //convert this tv into an observer
     lateinit var dao: ItemDao
-    lateinit var viewModel:RecyclerViewmodel
-
-
-
+    lateinit var viewModel: RecyclerViewmodel
     lateinit var listView: ListView
+
+
+    var secsObserver: Observer<Int> = object : Observer<Int> {
+        override fun onChanged(value: Int) {
+            //receiving the update/notification
+            tv.setText(value.toString())
+        }
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
         viewModel = ViewModelProvider(this)[RecyclerViewmodel::class.java]
+        viewModel._seconds.observe(this, secsObserver); //me giving my phno to the postman
 
         recyclerView = findViewById(R.id.recyclerview)
         recyclerView.layoutManager = LinearLayoutManager(this)
         var adapter = LangsAdapter(languages)
         recyclerView.adapter = adapter
-         tv = findViewById(R.id.tvDb)
-         tv.setText(""+viewModel._seconds)
+        tv = findViewById(R.id.tvDb)
+        tv.setText("" + viewModel._seconds)
+        viewModel.startTimer()
 
 
         var database = ItemRoomDatabase.getDatabase(this)
         dao = database.itemDao()
-
-
-
-
 
     }
 
@@ -61,7 +68,7 @@ lateinit var  tv: TextView //convert this tv into an observer
 
     fun getDb(view: View) {
         GlobalScope.launch(Dispatchers.Main) {
-            var item =  dao.getItem(11).first()
+            var item = dao.getItem(11).first()
             var tv: TextView = findViewById(R.id.tvDb)
             tv.setText(item.itemName)
         }
@@ -69,8 +76,8 @@ lateinit var  tv: TextView //convert this tv into an observer
     }
 
     fun increment(view: View) {
-       viewModel.increment()
-        tv.setText(""+viewModel.count)
+        viewModel.increment()
+        tv.setText("" + viewModel.count)
 
     }
 }
